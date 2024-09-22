@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int main() {
+    float hora, quanthora, salbruto, desconto, salliquido, inss, fgts, ir ;
+    cout << "Programa de Cálculo de Folha de Pagamento.\n";
+    cout << 
+    "Por favor, insira o valor da sua hora.(Ex.: 56.70)\n";
+    cin >> hora;
+    cout << "Agora, insira sua quantidade de horas trabalhadas nesse mês.(Ex.:220.00)\n";
+    cin >> quanthora;
+    salbruto = hora * quanthora;
+    
+    if (salbruto <= 900){
+        ir = 0;
+    } else if (salbruto <= 1500){
+        ir = salbruto * 0.05;
+    } else if (salbruto <= 2500){
+        ir = salbruto * 0.10;
+    } else {
+        ir = salbruto * 0.20;
+    }
+    
+    inss = salbruto * 0.10;
+    fgts = salbruto * 0.11;
+    desconto = ir + inss;
+    salliquido = salbruto - desconto;
+    
+    cout << "Salário Bruto: (R$ " << hora << " * " << quanthora << ") : R$ " << salbruto << endl;
+     cout << "(-) IR: R$ " << ir << endl;
+    cout << "(-) INSS (10%): R$ " << inss << endl;
+    cout << "FGTS (11%): R$ " << fgts << endl;
+    cout << "Total de descontos: R$ " << desconto << endl;
+    cout << "Salário Líquido: R$ " << salliquido << endl;
+    return 0;
+    }
